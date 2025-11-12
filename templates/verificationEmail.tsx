@@ -12,12 +12,12 @@ import {
 } from "@react-email/components";
 
 interface VerificationEmailProps {
-  userName?: string;
+  username?: string;
   otp: string;
 }
 
 export default function VerificationEmail({
-  userName,
+  username,
   otp,
 }: VerificationEmailProps) {
   return (
@@ -32,7 +32,7 @@ export default function VerificationEmail({
             </Heading>
 
             <Text className="text-gray-700 text-base mb-4">
-              {userName ? `Hi ${userName},` : "Hi,"}
+              {username ? `Hi ${username},` : "Hi,"}
             </Text>
 
             <Text className="text-gray-700 text-base mb-6">
