@@ -34,7 +34,7 @@ Mystery Message is a modern, full-stack web application for sending and receivin
 ---
 
 ## Tech Stack
-- **Frontend:** Next.js 16, React, TypeScript, Tailwind CSS, Radix UI
+- **Frontend:** Next.js 16, React, TypeScript, Tailwind CSS, ShadCN
 - **Backend:** Next.js API Routes, NextAuth.js, Mongoose (MongoDB)
 - **Authentication:** NextAuth.js
 - **Validation:** Zod
