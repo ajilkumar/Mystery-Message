@@ -233,7 +233,7 @@ const Page = () => {
                   type="submit"
                   className="w-full h-11 text-base"
                   size="lg"
-                  disabled={isSubmitting || (username && !isUsernameAvailable)}
+                  disabled={isSubmitting || (!!username && !isUsernameAvailable)}
                 >
                   {isSubmitting ? (
                     <>
