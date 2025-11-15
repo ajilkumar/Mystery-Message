@@ -29,7 +29,7 @@ interface SampleMessage {
   username: string;
 }
 
-export default function Home() {
+const Home = () => {
   const { data: session } = useSession();
   const sampleMessages: SampleMessage[] = messagesData;
 
@@ -276,4 +276,6 @@ export default function Home() {
       </section>
     </main>
   );
-}
+};
+
+export default Home;
