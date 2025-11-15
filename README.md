@@ -5,8 +5,6 @@
   </span>
 </p>
 
-## Tech Stack
-
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=white"/>
   <img src="https://img.shields.io/badge/React-20232a?logo=react&logoColor=61dafb"/>
@@ -20,7 +18,6 @@
   <img src="https://img.shields.io/badge/Resend-000000?logo=resend&logoColor=white"/>
 </p>
 
----
 
 ## Table of Contents
 - [Introduction](#introduction)
