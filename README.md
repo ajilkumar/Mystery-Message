@@ -1,7 +1,8 @@
-# Mystery Message
-
 <p align="center">
-  <img src="public/text.png" alt="Mystery Message Logo" width="120"/>
+  <img src="public/text.png" alt="Mystery Message Logo" width="70" style="vertical-align: middle;"/>
+  <span style="font-size: 42px; font-weight: 700; margin-left: 10px; vertical-align: middle;">
+    Mystery Message
+  </span>
 </p>
 
 ## Tech Stack
@@ -9,13 +10,14 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=white"/>
   <img src="https://img.shields.io/badge/React-20232a?logo=react&logoColor=61dafb"/>
+  <img src="https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Mongoose-880000?logo=mongoose&logoColor=white"/>
   <img src="https://img.shields.io/badge/TypeScript-3178c6?logo=typescript&logoColor=white"/>
   <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white"/>
-  <img src="https://img.shields.io/badge/NextAuth.js-2d3748?logo=nextdotjs&logoColor=fff"/>
-  <img src="https://img.shields.io/badge/Mongoose-880000?logo=mongoose&logoColor=white"/>
-  <img src="https://img.shields.io/badge/ShadCN-%23423674?logo=radixui&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Zod-d4679b?logo=data%3Aimage%2Fsvg%2Bxml;base64&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Resend-black?logo=data%3Aimage%2Fsvg%2Bxml;base64&logoColor=white"/>
+  <img src="https://img.shields.io/badge/NextAuth.js-2d3748?logo=nextdotjs&logoColor=white"/>
+  <img src="https://img.shields.io/badge/ShadCN_UI-000000?logo=radixui&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Zod-3E67B1?logo=zod&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Resend-000000?logo=resend&logoColor=white"/>
 </p>
 
 ---
@@ -62,29 +64,54 @@ Mystery Message is a modern, full-stack web application for sending and receivin
 
 ## Quick Start
 
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/yourusername/mysterymessage.git
-   cd mysterymessage
-   ```
-2. **Install Dependencies:**
-   ```bash
-   npm install
-   # or
-yarn install
-   ```
-3. **Copy Environment Variables:**
-   ```bash
-   cp env.sample.txt .env
-   # Fill in your credentials in .env
-   ```
-4. **Run the App:**
-   ```bash
-   npm run dev
-   # or
-yarn dev
-   ```
-5. **Open [http://localhost:3000](http://localhost:3000) in your browser**
+Follow these steps to set up the project locally on your machine.
+
+**Prerequisites**
+
+Make sure you have the following installed on your machine:
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+
+**Cloning the Repository**
+
+```bash
+git clone https://github.com/ajilkumar/Mystery-Message.git
+cd mystery-message
+```
+
+**Installation**
+
+Install the project dependencies using npm:
+
+```bash
+npm install
+```
+
+**Set Up Environment Variables**
+
+Create a new file named `.env` in the root of your project and add the following content:
+
+```env
+MONGODB_URI=
+
+RESEND_API_KEY=
+
+NEXT_AUTH_SECRET=
+
+OPENAI_API_KEY=
+```
+
+Replace the placeholder values with your real credentials.
+
+**Running the Project**
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
 
 ---
 
