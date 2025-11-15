@@ -1,9 +1,9 @@
-<p align="center">
-  <img src="public/text.png" alt="Mystery Message Logo" width="70" style="vertical-align: middle;"/>
-  <span style="font-size: 42px; font-weight: 700; margin-left: 10px; vertical-align: middle;">
+
+
+  <h1 align= 'center'>
     Mystery Message
-  </span>
-</p>
+  </h1>
+
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=white"/>
