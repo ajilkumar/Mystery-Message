@@ -3,12 +3,18 @@ import { authOptions } from "../../auth/[...nextauth]/options";
 import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/models/User";
 import { User } from "next-auth";
+import mongoose from "mongoose";
 
 export async function DELETE(
   request: Request,
   { params }: { params: { messageid: string } }
 ) {
-  const messageId = params.messageid;
+  // Handle both Promise and direct params for Next.js compatibility
+  const resolvedParams = params instanceof Promise ? await params : params;
+  const messageId = resolvedParams.messageid;
+  
+  console.log("Delete message API called with ID:", messageId);
+  
   await dbConnect();
 
   const session = await getServerSession(authOptions);
@@ -23,15 +29,27 @@ export async function DELETE(
       { status: 401 }
     );
   }
+
   try {
+    const userId = new mongoose.Types.ObjectId(user._id);
+    
+    // Try to convert messageId to ObjectId if it's a valid ObjectId string
+    let messageObjectId;
+    try {
+      messageObjectId = new mongoose.Types.ObjectId(messageId);
+    } catch {
+      // If conversion fails, use the string as-is
+      messageObjectId = messageId;
+    }
+
     const updatedResult = await UserModel.updateOne(
       {
-        _id: user._id,
+        _id: userId,
       },
-      { $pull: { messages: { _id: messageId } } }
+      { $pull: { messages: { _id: messageObjectId } } }
     );
 
-    if (updatedResult.modifiedCount == 0) {
+    if (updatedResult.modifiedCount === 0) {
       return Response.json(
         {
           success: false,
@@ -44,18 +62,18 @@ export async function DELETE(
     return Response.json(
       {
         success: true,
-        message: "Message deleted",
+        message: "Message deleted successfully",
       },
       { status: 200 }
     );
   } catch (error) {
-    console.log(`Error deleting messages`, error);
+    console.error("Error deleting message", error);
     return Response.json(
       {
         success: false,
-        message: "Error deleting messages",
+        message: "Error deleting message",
       },
-      { status: 401 }
+      { status: 500 }
     );
   }
 }

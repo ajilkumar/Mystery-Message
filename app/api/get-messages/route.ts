@@ -24,16 +24,9 @@ export async function GET(request: Request) {
   const userId = new mongoose.Types.ObjectId(user._id);
 
   try {
-    const user = await UserModel.aggregate([
-      { $match: { _id: userId } },
-      { $unwind: "$messages" },
-      {
-        $sort: { "messages.createdAt": -1 },
-      },
-      { $group: { _id: "$_id", message: { $push: "$messages" } } },
-    ]);
+    const foundUser = await UserModel.findById(userId);
 
-    if (!user || user.length === 0) {
+    if (!foundUser) {
       return Response.json(
         {
           success: false,
@@ -43,10 +36,18 @@ export async function GET(request: Request) {
       );
     }
 
+    // Sort messages by createdAt in descending order (newest first)
+    const messages = foundUser.messages
+      ? [...foundUser.messages].sort(
+          (a, b) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        )
+      : [];
+
     return Response.json(
       {
         success: true,
-        message: user[0].message,
+        messages: messages,
       },
       { status: 200 }
     );
@@ -57,7 +58,7 @@ export async function GET(request: Request) {
           success: false,
           message: "There was an error while fetching messages",
         },
-        { status: 401 }
+        { status: 500 }
       );
   }
 }
